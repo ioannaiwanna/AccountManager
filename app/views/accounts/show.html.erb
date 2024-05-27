@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Account Details</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @account.name %>
+</p>
+
+<p>
+  <strong>Vat:</strong>
+  <%= @account.vat %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @account.city %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @account.zipcode %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @account.address %>
+</p>
+
+<div>
+  <%= link_to "Edit this account", edit_account_path(@account) %> |
+  <%= link_to "Back to accounts", accounts_path %>
+
+  <%= button_to "Destroy this account", @account, method: :delete %>
+</div>
