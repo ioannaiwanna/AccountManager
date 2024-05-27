@@ -39,8 +39,8 @@ class AccountsController < ApplicationController
       end
     end
   end
-  
-  def destroy
+
+    def destroy
     @account.destroy
     respond_to do |format|
       format.html { redirect_to accounts_url, notice: "Account was successfully destroyed." }
