@@ -11,31 +11,29 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, required: true, id: 'account_name', data: { vat_lookup_target: "name" } %>
   </div>
 
-  
-
-  <div>
+  <div class="field">
     <%= form.label :vat %>
-    <%= form.text_field :vat %>
+    <%= form.text_field :vat, required: true, id: 'vat_number_field', data: { action: "blur->vat-lookup#lookup", vat_lookup_target: "vatNumber" }  %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.text_field :city, required: true, id: 'account_city', data: { vat_lookup_target: "city" } %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :zipcode %>
-    <%= form.text_field :zipcode %>
+    <%= form.text_field :zipcode, required: true, id: 'account_zipcode', data: { vat_lookup_target: "zipcode" } %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address,  required: true, id: 'account_address', data: { vat_lookup_target: "address" }  %>
   </div>
 
   <div>
