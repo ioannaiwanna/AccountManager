@@ -1,10 +1,9 @@
-<%= form_with(model: account) do |form| %>
-  <% if account.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
-
+<%= form_with(model: @account, local: true) do |form| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
       <ul>
-        <% account.errors.each do |message| %>
+        <% @account.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -13,30 +12,31 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, required: true, id: 'account_name', data: { vat_lookup_target: "name" } %>
+    <%= form.text_field :name, id: 'account_name' %>
   </div>
 
   <div class="field">
     <%= form.label :vat %>
-    <%= form.text_field :vat, required: true, id: 'vat_number_field', data: { action: "blur->vat-lookup#lookup", vat_lookup_target: "vatNumber" }  %>
+    <%= form.text_field :vat, id: 'account_vat', value: 'EL' %>
+    <button type="button" id="vat_lookup_button">🔎</button>
   </div>
 
   <div class="field">
     <%= form.label :city %>
-    <%= form.text_field :city, required: true, id: 'account_city', data: { vat_lookup_target: "city" } %>
+    <%= form.text_field :city, id: 'account_city' %>
   </div>
 
   <div class="field">
     <%= form.label :zipcode %>
-    <%= form.text_field :zipcode, required: true, id: 'account_zipcode', data: { vat_lookup_target: "zipcode" } %>
+    <%= form.text_field :zipcode, id: 'account_zipcode' %>
   </div>
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address,  required: true, id: 'account_address', data: { vat_lookup_target: "address" }  %>
+    <%= form.text_field :address, id: 'account_address' %>
   </div>
 
-  <div>
+  <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
