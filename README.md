@@ -10,7 +10,7 @@ application up and running.
 * Rails 7.1.3.3
   
 * clone repository
-* git clone https://github.com/yourusername/account-manager.git
+* git clone https://github.com/ioannaiwanna/AccountManager.git
 
 * System dependencies
 
